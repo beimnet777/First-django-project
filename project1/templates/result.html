@@ -1,11 +1,24 @@
+{%load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'admin\css\base.css'%}">
+  
   <title>Document</title>
 </head>
 <body>
+  
   <h2>result</h2>:{{result}}
+  {% for i in  nums%}
+  <h1>{{i.name}}</h3>
+  <h2>{{i.age}}</h3>
+  <h3>{{i.id}}</h3>
+  {%if i.t%}
+  <h1>true</h1>
+  {%endif%}
+  {%endfor%}
+ 
 </body>
 </html>
