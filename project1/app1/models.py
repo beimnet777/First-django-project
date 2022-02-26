@@ -11,3 +11,13 @@ class nums(models.Model):
   #   self.age=age
   #   self.id=id
   #   self.t=t
+class nums2(models.Model):
+  name=models.CharField(max_length=50)
+  age=models.IntegerField(null=True)
+  is_offer=models.BooleanField(default=False)
+  fk=models.ForeignKey(nums,null=True,on_delete=models.CASCADE)
+class nums3(models.Model):
+  name=models.CharField(max_length=50)
+  age=models.IntegerField(null=True)
+  is_offer=models.BooleanField(default=False)
+  Foreignkey=models.ManyToManyField(nums)  

@@ -1,6 +1,8 @@
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import nums
+from .forms import NumsForm
 
 # Create your views here.
 def home(request):
@@ -13,3 +15,17 @@ def add(request):
   var2=request.POST['two']
   res=int(var1)+int(var2)
   return render(request,"result.html",{'result':res,'nums':numbers})
+def createNum(request):  
+  if request.method=='POST':
+    
+    print(forms)
+    
+    if forms.is_valid():
+      forms=NumsForm(request.POST)
+      forms.save()
+      
+      
+      return render(request,'nums.html',context=context)
+  form=NumsForm()
+  context={'form':form}
+  return render(request,'nums.html',context=context)
